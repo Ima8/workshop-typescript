@@ -1,14 +1,14 @@
 "use strict";
 var Captcha = (function () {
-    function Captcha(pattern, left, right, operand) {
+    function Captcha(pattern, left, right, operator) {
         this.pattern = pattern;
         this.left = left;
         this.right = right;
-        this.operand = operand;
+        this.operator = operator;
         this.pattern = pattern;
         this.left = left;
         this.right = right;
-        this.operand = operand;
+        this.operator = operator;
     }
     Captcha.prototype.conventNum = function (number) {
         var ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
@@ -19,16 +19,19 @@ var Captcha = (function () {
         return ops[number];
     };
     Captcha.prototype.toText = function () {
+        var left;
+        var right;
+        var operator;
         if (this.pattern === 1) {
-            var right = this.conventNum(this.right);
-            var operand = this.conventOperand(this.operand);
-            return this.left + " " + operand + " " + right;
+            left = "" + this.left;
+            right = this.conventNum(this.right);
         }
         else if (this.pattern === 2) {
-            var left = this.conventNum(this.left);
-            var operand = this.conventOperand(this.operand);
-            return left + " " + operand + " " + this.right;
+            left = this.conventNum(this.left);
+            right = "" + this.right;
         }
+        operator = this.conventOperand(this.operator);
+        return left + " " + operator + " " + right;
     };
     return Captcha;
 }());
