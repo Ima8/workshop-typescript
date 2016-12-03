@@ -5,6 +5,10 @@ var Captcha = (function () {
         this.left = left;
         this.right = right;
         this.operand = operand;
+        this.pattern = pattern;
+        this.left = left;
+        this.right = right;
+        this.operand = operand;
     }
     Captcha.prototype.toText = function () {
         return this.left + " + One";

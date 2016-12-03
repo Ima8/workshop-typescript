@@ -1,15 +1,10 @@
 class Captcha{
 
-  private pattern:number;
-  private left:number;
-  private right:number;
-  private operand:number;
-
   constructor(
-    pattern:number,
-    left:number,
-    right:number,
-    operand:number){
+    private pattern:number,
+    private left:number,
+    private right:number,
+    private operand:number){
       this.pattern=pattern;
       this.left=left;
       this.right=right;
